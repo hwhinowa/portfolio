@@ -34,7 +34,7 @@ const work=()=>{
         body.classList.add('active');
     }, 500);
     setTimeout(function(){
-        location.href = '/html/works.html';
+        location.href = './html/works.html';
     }, 1500);
 }
 
