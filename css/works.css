@@ -479,27 +479,27 @@ section > a{
         background-size: 120%;
     }
     .panel.item2 .image_box {
-        background: url('../img/budapest.JPG') no-repeat 70% 30%;
+        background: url('../img/budapest.jpg') no-repeat 70% 30%;
         background-size:cover;
     }
     .panel.item3 .image_box {
-        background: url('../img/orento.JPG') no-repeat 50% 30%;
+        background: url('../img/orento.jpg') no-repeat 50% 30%;
         background-size:cover;
     }
     .panel.item4 .image_box {
-        background: url('../img/coc.JPG') no-repeat 50% 50%;
+        background: url('../img/coc.jpg') no-repeat 50% 50%;
         background-size:cover;
     }
     .panel.item5 .image_box {
-        background: url('../img/festival.JPG') no-repeat 50% 60%;
+        background: url('../img/festival.jpg') no-repeat 50% 60%;
         background-size:cover;
     }
     .panel.item6 .image_box {
-        background: url('../img/hanwha.JPG') no-repeat 50% 80%;
+        background: url('../img/hanwha.jpg') no-repeat 50% 80%;
         background-size:cover;
     }
     .panel.item7 .image_box {
-        background: url('../img/pension.JPG') no-repeat 40% 50%;
+        background: url('../img/pension.jpg') no-repeat 40% 50%;
         background-size:cover;
     }
 }
