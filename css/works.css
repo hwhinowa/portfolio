@@ -503,5 +503,13 @@ section > a{
         background-size:cover;
     }
 }
-@media screen and (max-width:440px){}
+@media screen and (max-width:440px){
+    .fix_box1{
+        top:2rem;
+        left:2rem;
+    }
+    .introduce_top{width:60px;}
+    .introduce_box{padding:2rem;}
+    .introduce_content{margin:18% 5% 0 0;}
+}
 @media screen and (max-width:360px){}

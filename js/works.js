@@ -136,6 +136,59 @@ function _scrollY(obj) {
     }
 }
 
+function _swipe(obj) {
+    var swdir,
+        sX,
+        sY,
+        dX,
+        dY,
+        threshold = 100,
+        /*[min distance traveled to be considered swipe]*/
+        slack = 50,
+        /*[max distance allowed at the same time in perpendicular direction]*/
+        alT = 500,
+        /*[max time allowed to travel that distance]*/
+        elT, /*[elapsed time]*/
+        stT; /*[start time]*/
+    obj.addEventListener('touchstart', function (e) {
+        var tchs = e.changedTouches[0];
+        swdir = 'none';
+        sX = tchs.pageX;
+        sY = tchs.pageY;
+        stT = new Date().getTime();
+        //e.preventDefault();
+    }, false);
+
+    obj.addEventListener('touchmove', function (e) {
+        e.preventDefault(); /*[prevent scrolling when inside DIV]*/
+    }, false);
+
+    obj.addEventListener('touchend', function (e) {
+        var tchs = e.changedTouches[0];
+        dX = tchs.pageX - sX;
+        dY = tchs.pageY - sY;
+        elT = new Date().getTime() - stT;
+        if (elT <= alT) {
+            if (Math.abs(dX) >= threshold && Math.abs(dY) <= slack) {
+                swdir = (dX < 0) ? 'left' : 'right';
+            } else if (Math.abs(dY) >= threshold && Math.abs(dX) <= slack) {
+                swdir = (dY < 0) ? 'up' : 'down';
+            }
+            if (obj.id === 'well') {
+                if (swdir === 'up') {
+                    scdir = swdir;
+                    _scrollY(obj);
+                } else if (swdir === 'down' && obj.style.transform !== 'translateY(0)') {
+                    scdir = swdir;
+                    _scrollY(obj);
+
+                }
+                e.stopPropagation();
+            }
+        }
+    }, false);
+}
+
 let well = document.getElementById('well');
 well.style.transform = 'translateY(0)';
 well.addEventListener('wheel', function (e) {
@@ -148,6 +201,7 @@ well.addEventListener('wheel', function (e) {
     e.stopPropagation();
 });
 well.addEventListener('wheel', _scrollY);
+_swipe(well);
 
 let $tops = $('.introduce_top');
 for (let i = 0; i < $tops.length; i++) {
