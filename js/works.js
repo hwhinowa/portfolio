@@ -96,7 +96,7 @@ const view_index=(btn, mobile)=>{
 let scroll_direction, hold = false,
     panels = $('.panel').length;
 
-function _scrollY(obj) {
+function scroll_y(obj) {
     let slength, plength, pan,
         step = 100,
         vh = window.innerHeight / 100,
@@ -136,31 +136,21 @@ function _scrollY(obj) {
     }
 }
 
-function _swipe(obj) {
-    var swdir,
-        sX,
-        sY,
-        dX,
-        dY,
+function swipe(obj) {
+    var swipe_direction, sX, sY, dX, dY, elT, stT,
         threshold = 100,
-        /*[min distance traveled to be considered swipe]*/
         slack = 50,
-        /*[max distance allowed at the same time in perpendicular direction]*/
-        alT = 500,
-        /*[max time allowed to travel that distance]*/
-        elT, /*[elapsed time]*/
-        stT; /*[start time]*/
+        alT = 500;
     obj.addEventListener('touchstart', function (e) {
         var tchs = e.changedTouches[0];
-        swdir = 'none';
+        swipe_direction = 'none';
         sX = tchs.pageX;
         sY = tchs.pageY;
         stT = new Date().getTime();
-        //e.preventDefault();
     }, false);
 
     obj.addEventListener('touchmove', function (e) {
-        e.preventDefault(); /*[prevent scrolling when inside DIV]*/
+        e.preventDefault();
     }, false);
 
     obj.addEventListener('touchend', function (e) {
@@ -170,18 +160,17 @@ function _swipe(obj) {
         elT = new Date().getTime() - stT;
         if (elT <= alT) {
             if (Math.abs(dX) >= threshold && Math.abs(dY) <= slack) {
-                swdir = (dX < 0) ? 'left' : 'right';
+                swipe_direction = (dX < 0) ? 'left' : 'right';
             } else if (Math.abs(dY) >= threshold && Math.abs(dX) <= slack) {
-                swdir = (dY < 0) ? 'up' : 'down';
+                swipe_direction = (dY < 0) ? 'up' : 'down';
             }
             if (obj.id === 'well') {
-                if (swdir === 'up') {
-                    scdir = swdir;
-                    _scrollY(obj);
-                } else if (swdir === 'down' && obj.style.transform !== 'translateY(0)') {
-                    scdir = swdir;
-                    _scrollY(obj);
-
+                if (swipe_direction === 'up') {
+                    scroll_direction = swipe_direction;
+                    scroll_y(obj);
+                } else if (swipe_direction === 'down' && obj.style.transform !== 'translateY(0)') {
+                    scroll_direction = swipe_direction;
+                    scroll_y(obj);
                 }
                 e.stopPropagation();
             }
@@ -200,13 +189,13 @@ well.addEventListener('wheel', function (e) {
     }
     e.stopPropagation();
 });
-well.addEventListener('wheel', _scrollY);
-_swipe(well);
+well.addEventListener('wheel', scroll_y);
+swipe(well);
 
 let $tops = $('.introduce_top');
 for (let i = 0; i < $tops.length; i++) {
     $tops[i].addEventListener('click', function () {
         scroll_direction = 'top';
-        _scrollY(well);
+        scroll_y(well);
     });
 }
