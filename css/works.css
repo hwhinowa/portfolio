@@ -14,10 +14,34 @@ html, body{height:100%;}
 
 /*--- CONTENTS ---*/
 body {
-    overflow: hidden;
-    margin: 0;
-    font-family: "Limelight", sans-serif;
-    text-rendering: optimizeLegibility;
+    overflow:hidden;
+    margin:0;
+    font-family:"Limelight", sans-serif;
+    text-rendering:optimizeLegibility;
+}
+.get_out{
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    padding:20vh 5rem 0;
+    box-sizing:border-box;
+    background:#17d789;
+    z-index:99999;
+}
+.get_out.active{
+    display:block;
+}
+.get_out p{
+    height:100%;
+    font-size:5rem;
+    font-weight:900;
+    color:rgba(0, 255, 174, 1);
+    text-align:center;
+    line-height:120%;
+    letter-spacing:-1px;
 }
 .wrap {
     position: relative;
@@ -89,7 +113,7 @@ section > a{
     background-size:cover;
 }
 .panel.item5 .image_box{
-    background:url('../img/festival.jpg') no-repeat 50% 0;
+    background:url('../img/legend.jpg') no-repeat 50% 50%;
     background-size:cover;
 }
 .panel.item6 .image_box{
@@ -206,11 +230,11 @@ section > a{
 .introduce_content{
     position:relative;
     height:20rem;
-    margin:30% 0;
+    margin:30vh 0 0;
 }
 .introduce_content p{
     position:absolute;
-    bottom:4rem;
+    top:12rem;
     overflow: hidden;
     width: 0;
     font-size: 1.2rem;
@@ -218,7 +242,6 @@ section > a{
     line-height: 140%;
     color: #999;
     font-weight: 900;
-    white-space: nowrap;
     animation:1.7s forwards;
     animation-name: width_100, opacity_show;
     animation-delay:0.5s;
@@ -226,9 +249,10 @@ section > a{
 .introduce_content p.title{
     top:8rem;
     width:100%;
-    font-size: 5rem;
-    letter-spacing: -1px;
+    font-size:4.4rem;
     color: #333;
+    line-height:140%;
+    letter-spacing: -1px;
     margin-left: -0.3rem;
     animation:1.2s forwards;
     animation-name:top_0, opacity_show;
@@ -240,31 +264,28 @@ section > a{
     width: 0;
     height: 3px;
     background: #17d789;
-    margin-bottom: -0.6rem;
     margin-left: 0.3rem;
     animation:width_1 1s forwards;
     animation-delay:1.5s;
 }
-.introduce_content p.title:after {
+.introduce_content p.title:after{
     display: block;
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    width: 105%;
+    width: 100%;
     height: 8rem;
     background: #fff;
     animation:top_8 1.2s forwards;
     animation-timing-function: cubic-bezier(1,0,.62,1.23);
 }
 .introduce_content p.category{
-    bottom:8rem;
+    top:9rem;
     color: #333;
 }
-.introduce_content p span{
-    display:block;
-}
+.introduce_content p span{display:block;}
 
 /* PROJECT EXPLAIN */
 .fix_box2{
@@ -416,11 +437,23 @@ section > a{
 }
 
 /*--- MEDIA QUERY ---*/
+@media screen and (max-width:1300px){
+    .introduce_content p.title.long{
+        margin-top:-5rem;
+        line-height:110%;
+    }
+    .introduce_content p.title.long:before{margin-bottom:1rem;}
+    .introduce_content p.title.long:after{display:none;}
+}
 @media screen and (max-width:1000px){
     html{font-size:8px;}
-    .introduce_content{margin:50% 0;}
+    .introduce_content{margin:30vh 0;}
     .introduce_content p{font-size:1.6rem;}
-    .introduce_content p.category{bottom:9rem;}
+    /* .introduce_content p.category{bottom:9rem;} */
+}
+@media screen and (max-width:800px){
+    .panel:last-child .introduce_content p.title{margin-top:-4rem;}
+    .panel:last-child .introduce_content p.title:after{display:none;}
 }
 @media screen and (max-width:600px){
     .scroll_view{
@@ -461,7 +494,7 @@ section > a{
         white-space:pre-line;
     }
     .introduce_content p:nth-of-type(3){
-        bottom:2rem;
+        top:5rem;
         width:100%;
         opacity:0;
         letter-spacing:-1px;
@@ -469,9 +502,10 @@ section > a{
         animation:opacity_show 1.7s forwards;
         animation-delay:0.5s;
     }
-    .introduce_content.long p:nth-of-type(3){bottom:0;}
-    .introduce_content p.title{font-size:4.4rem;}
+    /* .introduce_content.long p:nth-of-type(3){bottom:0;} */
+    .introduce_content p.title{margin-top:-4rem;}
     .introduce_content p.title:before{margin:0 0 1rem auto;}
+    .introduce_content p.category{top:4rem;}
     .introduce_content p span{display:none;}
     .image_box{
         width:100%;
@@ -494,7 +528,7 @@ section > a{
         background-size:cover;
     }
     .panel.item5 .image_box {
-        background: url('../img/festival.jpg') no-repeat 50% 60%;
+        background: url('../img/legend.jpg') no-repeat 50% 60%;
         background-size:cover;
     }
     .panel.item6 .image_box {
@@ -513,6 +547,6 @@ section > a{
     }
     .introduce_top{width:60px;}
     .introduce_box{padding:2rem;}
-    .introduce_content{margin:24% 5% 0 0;}
+    .introduce_content{margin:28% 5% 0 0;}
 }
 @media screen and (max-width:360px){}

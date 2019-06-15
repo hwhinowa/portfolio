@@ -1,5 +1,22 @@
 'use strict';
 
+// 브라우저 체크
+var agent = navigator.userAgent;
+console.log(agent);
+var isIE = /*@cc_on!@*/false || !!document.documentMode;
+// IE 10 이하
+if(agent.indexOf('msie') !== -1){
+    console.log('IE 10 이하');
+}
+// IE 10 이상
+if(agent.indexOf('rv:1') !== -1){
+    console.log('IE 10 이상');
+}
+// Edge 20+
+var isEdge = !isIE && !!window.StyleMedia;
+console.log('isIE : ', isIE);
+console.log('isEdge : ', isEdge);
+
 // 선택자 객체 지정 함수
 function $(selector){
 	let $el = document.querySelectorAll(selector),

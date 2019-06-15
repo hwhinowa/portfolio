@@ -12,6 +12,19 @@
 </head>
 
 <body>
+    <!-- if IE -->
+    <div class="get_out">
+        <p>Chrome, Firefox나 Opera 브라우저로 접속하세요</p>
+    </div>
+    <script>
+        var isIE = /*@cc_on!@*/false || !!document.documentMode; // IE
+        var isEdge = !isIE && !!window.StyleMedia; // Edge 20+
+        if(isIE){
+            var box = document.querySelector('.get_out');
+            document.querySelector('body').style.overflow = 'hidden';
+            box.className = 'get_out active';
+        }
+    </script>
     <!-- LOADER -->
     <div class='loader_box'>
         <div class='loader'>

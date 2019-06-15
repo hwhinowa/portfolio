@@ -9,6 +9,17 @@
     <link rel='stylesheet' href='../css/works.css'>
 </head>
 <body>
+    <div class="get_out">
+        <p>Chrome, Firefox나 Opera 브라우저로 접속하세요</p>
+    </div>
+    <script>
+        var isIE = /*@cc_on!@*/false || !!document.documentMode; // IE
+        var isEdge = !isIE && !!window.StyleMedia; // Edge 20+
+        if(isIE){
+            var box = document.querySelector('.get_out');
+            box.className = 'get_out active';
+        }
+    </script>
     <div class="scroll_view">
         <span></span>
         <span></span>
@@ -38,7 +49,7 @@
        <button onclick='move(this)'>The Grand Budapest Hotel</button>
        <button onclick='move(this)'>Orento</button>
        <button onclick='move(this)'>Clash of Clans</button>
-       <button onclick='move(this)'>World Festival</button>
+       <button onclick='move(this)'>Mobile Legend</button>
        <button onclick='move(this)'>Hanwha</button>
        <button onclick='move(this)'>Haeundae Pension</button>
     </div>
@@ -65,7 +76,7 @@
         <section class='panel item2 lear'>
             <div class='introduce_box'>
                 <div class='introduce_content'>
-                    <p class="title">The Grand Budapest Hotel</p>
+                    <p class="title long">The Grand Budapest Hotel</p>
                     <p class="category">Design Publishing</p>
                     <p>
                         그랜드 부다페스트 호텔 소개 사이트<span class='break'></span>
@@ -85,7 +96,7 @@
                     <p class="title">Orento</p>
                     <p class="category">Publishing / Main1 Sub5</p>
                     <p>
-                        사람들이 물건을 사지 않고 빌려서 사용할 수 있도록 연결시켜주는 오렌토 앱을 소개하는 사이트<span class='break'></span>
+                        생활편의 렌탈서비스 오렌토를 소개하는 사이트<span class='break'></span>
                         실제 앱 서비스 Orento를 웹에서 사용할 수 있는 사이트입니다
                     </p>
                 </div>
@@ -116,19 +127,28 @@
         <section class='panel item5 clear'>
             <div class='introduce_box'>
                 <div class='introduce_content'>
+                    <p class="title">Mobile Legend</p>
+                    <p class="category">Php</p>
+                    <p>
+                        게임 '모바일 레전드' 캐릭터 정보 사이트<span class='break'></span>
+                        PHP를 사용하여 검색기능과 데이터 추가/삭제 기능을 구현했습니다
+                    </p>
+                </div>
+                <!-- <div class='introduce_content'>
                     <p class="title">World Festival</p>
                     <p class="category">Design Publishing J-query</p>
                     <p>
                         세계국립극장페스티벌 사이트 리뉴얼<span class='break'></span>
                         기존의 세계국립극장페스티벌 사이트를 재디자인하여 제작했습니다
                     </p>
-                </div>
+                </div> -->
                 <div class="util clear">
                     <button>Contact</button>
                     <button onclick='view_index(this, true)'>Index</button>
                 </div>
             </div>
-            <a href='http://dmdpro.cafe24.com/portfolio/21561074_ohyiseul/html/index_festival.html' target='_blank' class='image_box'></a>
+            <a href='https://www.youtube.com/watch?v=qLVZKrZ7pP4&feature=youtu.be' target='_blank' class='image_box'></a>
+            <!-- <a href='http://dmdpro.cafe24.com/portfolio/21561074_ohyiseul/html/index_festival.html' target='_blank' class='image_box'></a> -->
         </section>
         <section class='panel item6 clear'>
             <div class='introduce_box'>
@@ -137,7 +157,7 @@
                     <p class="category">Design Publishing Responsible J-query</p>
                     <p>
                         한화 에너지 기업 소개 사이트<span class='break'></span>
-                        기존의 한화 에너지 사이트를 재디자인하여 제작했습니다
+                        기존의 사이트를 한화 에너지의 색깔을 살려 리뉴얼했습니다
                     </p>
                 </div>
                 <div class="util clear">
@@ -154,7 +174,7 @@
                     <p class="category">Design Publishing Responsible J-query</p>
                     <p>
                         해운대구 펜션민박협회<span class='break'></span>
-                        가상의 웹사이트이며, 부산의 앞바다 해운대구 컨셉의 디자인으로 제작했습니다
+                        가상의 웹사이트이며, 부산의 앞바다 해운대구 컨셉으로 디자인했습니다
                     </p>
                 </div>
                 <div class="util clear">
