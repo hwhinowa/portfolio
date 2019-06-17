@@ -656,6 +656,20 @@ main.menu .skill ul{
         width:50%;
     }
 }
+@keyframes work_mobile{
+    from{
+        top:100%;
+        height:0;
+    }
+    60%{
+        top:0;
+        height:100vh;
+    }
+    to{
+        top:0;
+        height:54%;
+    }
+}
 @keyframes line{
     to{stroke-dasharray:50 50;}
 }
@@ -792,6 +806,20 @@ main.menu .skill ul{
     }
     .skill .one{top:36rem;}
     .one div{height:22rem;}
+
+    .work_empty{
+        position:fixed;
+        left:0;
+        top:100%;
+        width:100%;
+        height:0;
+        background:#fff;
+        z-index:99999;
+    }
+    .work_empty.active{
+        animation:work_mobile 1s forwards;
+        animation-timing-function:cubic-bezier(.74,.56,0,1.01);
+    }
 }
 @media screen and (max-width:440px){
     .text_box{
