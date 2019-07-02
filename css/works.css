@@ -109,8 +109,8 @@ section > a{
     background-size:cover;
 }
 .panel.item4 .image_box{
-    background:url('../img/coc.jpg') no-repeat 50% 0;
-    background-size:cover;
+    background:url('../img/note.png') no-repeat 50% 50% #eee;
+    background-size:50%;
 }
 .panel.item5 .image_box{
     background:url('../img/legend.jpg') no-repeat 50% 50%;
