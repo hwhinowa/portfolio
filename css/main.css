@@ -463,7 +463,7 @@ main.menu .about_top > div span:nth-of-type(2):before{
 }
 
 .text_con{
-    width:40%;
+    width:36%;
     opacity:0;
 }
 main.menu .text_con{
@@ -497,7 +497,7 @@ main.menu .text_con{
     margin-top: -2rem;
 }
 .text_con p{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #777;
     line-height: 130%;
